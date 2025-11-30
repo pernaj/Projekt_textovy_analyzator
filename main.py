@@ -38,7 +38,8 @@ username = input("Please enter your username: ")
 password = input("Please enter your password: ")
 
 if username in users and password in users.get(username):
-    print(f"username: {username}", f"password: {password}", "-"*40, f"Welcome to the app, {username}", 
+    print(f"username: {username}", f"password: {password}", "-"*40, 
+          f"Welcome to the app, {username}", 
           f"We have 3 texts to be analyzed.", "-"*40, sep="\n")
     text_number = input("Enter a number btw. 1 and 3 to select: ")
     #Ocislovani textu.
@@ -97,5 +98,6 @@ if username in users and password in users.get(username):
     else: 
         print("Entered value, not number, terminating the program..")
 else:
-    print(f"username: {username}", f"password: {password}", "unregistered user, terminating the program..", sep="\n")
+    print(f"username: {username}", f"password: {password}", 
+          "unregistered user, terminating the program..", sep="\n")
     

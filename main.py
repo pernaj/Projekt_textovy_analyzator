@@ -47,7 +47,36 @@ if username in users and password in users.get(username):
     if text_number.isdigit():
         number = int(text_number)
         if 1 <= number <= len(TEXTS):
-            print("a")
+            text = TEXTS[number - 1]
+            print(text)
+            print("-"*40) #Zacatek analyzy textu.
+
+            #Pocet slov v textu.
+            total_words = len(text.split())
+            print(f"There are {total_words} words in the selected text.")
+
+            #Pocet slov zacinajicich velkym pismenem.
+            titlecase_words = [word for word in text.split() if word.istitle()]
+            print(f"There are {len(titlecase_words)} titlecase words.")
+
+            #Pocet slov psanych velkymi pismeny.
+            uppercase_words = [word for word in text.split() if word.isupper()]
+            print(f"There are {len(uppercase_words)} uppercase words.")
+
+            #Pocet slov psanych malymi pismeny.
+            lowercase_words = [word for word in text.split() if word.islower()]
+            print(f"There are {len(lowercase_words)} lowercase words.")
+
+            #Pocet cisel, ne cifer.
+            numbers_in_text = [word for word in text.split() if word.strip(".,;!?:").isnumeric()]
+            print(f"There are {len(numbers_in_text)} numeric strings.")
+
+            #Soucet vsech cisel (ne cifer) ve vybranem textu.
+            numbers_sum = [int(number) for number in numbers_in_text]
+            print(f"The sum of all the numbers {sum(numbers_sum)}")
+
+            print("-"*40, "LEN|    OCCURENCES    |NR.", "-"*40, sep="\n")
+
         else: 
             print("Entered wrong number, terminating the program..")
     else: 

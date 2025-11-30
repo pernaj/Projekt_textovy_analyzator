@@ -48,9 +48,11 @@ if username in users and password in users.get(username):
         number = int(text_number)
         if 1 <= number <= len(TEXTS):
             text = TEXTS[number - 1]
+            print("ANALYSED TEXT: ")
             print(text)
-            print("-"*40) #Zacatek analyzy textu.
-
+            print("-"*40) 
+            
+            #Zacatek analyzy textu.
             #Pocet slov v textu.
             total_words = len(text.split())
             print(f"There are {total_words} words in the selected text.")
@@ -75,7 +77,20 @@ if username in users and password in users.get(username):
             numbers_sum = [int(number) for number in numbers_in_text]
             print(f"The sum of all the numbers {sum(numbers_sum)}")
 
-            print("-"*40, "LEN|    OCCURENCES    |NR.", "-"*40, sep="\n")
+            print("-"*40, "LEN|     OCCURENCES     |NR.", "-"*40, sep="\n")
+
+            #Graficke zobrazeni (sloupcovy graf) cetnosti ruznych delek slov.
+            occurence = dict()
+
+            for word in text.split():
+                word = word.strip(".,;!?")
+                words_len = len(word) #Delka jednotlivych slov.
+                if words_len in occurence: #Naplneni slovniku "occurence" poctem jednotlivych delek slov.
+                    occurence[words_len] += 1
+                else:
+                    occurence[words_len] = 1
+            for key, value in sorted(occurence.items()):
+                print(f"{key:>3}|{"*" * value:<20}|{value}")
 
         else: 
             print("Entered wrong number, terminating the program..")

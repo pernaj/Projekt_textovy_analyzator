@@ -41,18 +41,17 @@ if username in users and password in users.get(username):
     print(f"username: {username}", f"password: {password}", "-"*40, f"Welcome to the app, {username}", 
           f"We have 3 texts to be analyzed.", "-"*40, sep="\n")
     text_number = input("Enter a number btw. 1 and 3 to select: ")
+    #Ocislovani textu.
+    list(enumerate(TEXTS, start = 1))
+    #Overeni, ze uzivatel zadal platnou hodnotu (cislo textu) a ze je v rozsahu 1-3.
+    if text_number.isdigit():
+        number = int(text_number)
+        if 1 <= number <= len(TEXTS):
+            print("a")
+        else: 
+            print("Entered wrong number, terminating the program..")
+    else: 
+        print("Entered value, not number, terminating the program..")
 else:
     print(f"username: {username}", f"password: {password}", "unregistered user, terminating the program..", sep="\n")
-
-#Ocislovani textu.
-list(enumerate(TEXTS, start = 1))
-
-#Overeni, ze uzivatel zadal platnou hodnotu (cislo textu) a ze je zadane cislo v rozsahu 1-3.
-if text_number.isdigit():
-    number = int(text_number)
-    if 1 <= number <= len(TEXTS):
-        print("text")
-    else: 
-        print("Entered wrong number, terminating the program..")
-else:
-    print("Entered value, not number, terminating the program..")
+    

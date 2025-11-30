@@ -43,3 +43,12 @@ if username in users and password in users.get(username):
     text_number = input("Enter a number btw. 1 and 3 to select: ")
 else:
     print(f"username: {username}", f"password: {password}", "unregistered user, terminating the program..", sep="\n")
+
+#Ocislovani textu.
+list(enumerate(TEXTS, start = 1))
+
+#Overeni, ze uzivatel zadal platnou hodnotu (cislo textu).
+if text_number.isdigit():
+    print("number")
+else:
+    print("Entered value, not number, terminating the program..")

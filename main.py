@@ -47,8 +47,12 @@ else:
 #Ocislovani textu.
 list(enumerate(TEXTS, start = 1))
 
-#Overeni, ze uzivatel zadal platnou hodnotu (cislo textu).
+#Overeni, ze uzivatel zadal platnou hodnotu (cislo textu) a ze je zadane cislo v rozsahu 1-3.
 if text_number.isdigit():
-    print("number")
+    number = int(text_number)
+    if 1 <= number <= len(TEXTS):
+        print("text")
+    else: 
+        print("Entered wrong number, terminating the program..")
 else:
     print("Entered value, not number, terminating the program..")
